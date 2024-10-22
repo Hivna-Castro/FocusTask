@@ -1,0 +1,31 @@
+<h1>Tarefas</h1>
+
+<% if @tasks.any? %>
+  <ul>
+    <% @tasks.each do |task| %>
+      <li><%= task.title %></li> 
+    <% end %>
+  </ul>
+<% else %>
+  <p>Nenhuma tarefa encontrada.</p>
+<% end %>
+
+<%= link_to 'Adicionar Tarefa', new_task_path, class: 'btn btn-primary', remote: true, data: { turbo_frame: "task_modal" } %>
+
+<div id="taskModal" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Nova Tarefa</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= turbo_frame_tag "task_modal" do %>
+        
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Sair', logout_path, method: :delete, class: 'btn btn-secondary', data: { confirm: 'Tem certeza que deseja sair?' } %>
