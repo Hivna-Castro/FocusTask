@@ -11,7 +11,7 @@ Rails.application.routes.draw do
  post 'users', to: 'users#create'                # criar um novo usuário
  get 'login', to: 'sessions#new', as: 'login'    # para logar
  post 'login', to: 'sessions#create'             # autenticar o usuário
- delete 'logout', to: 'sessions#destroy', as: 'logout' 
+ get 'logout', to: 'sessions#destroy', as: :logout
 
  root 'tasks#index'
  

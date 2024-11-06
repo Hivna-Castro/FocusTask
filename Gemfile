@@ -17,13 +17,13 @@ gem "puma", ">= 5.0"
 
 gem "interactor"
 
-# futuramente - gem "jwt" - pra autentificação
-
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
+
+gem 'jquery-rails'
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
