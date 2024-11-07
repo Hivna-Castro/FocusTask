@@ -1,14 +1,35 @@
+<h1><%= @task.persisted? ? "Editar Tarefa" : "Nova Tarefa" %></h1>
+
 <%= form_with model: @task, local: true do |form| %>
   <div class="mb-3">
-    <%= form.label :titulo %>
-    <%= form.text_field :titulo, class: "form-control" %>
+    <%= form.label :title, "Título" %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
   <div class="mb-3">
-    <%= form.label :descrição %>
-    <%= form.text_area :descrição, class: "form-control" %>
+    <%= form.label :description, "Descrição" %>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
-  <%= form.submit "Adicionar Tarefa", class: "btn btn-primary" %>
-<% end %>
+  <div class="mb-3">
+    <%= form.label :status, "Status" %>
+    <%= form.select :status, Task.statuses.keys.map { |status| [status.humanize, status] }, { prompt: "Selecione o status" }, class: "form-control" %>
+  </div>
 
+  <div class="mb-3">
+    <%= form.label :priority, "Prioridade" %>
+    <%= form.select :priority, Task.priorities.keys.map { |priority| [priority.humanize, priority] }, { prompt: "Selecione a prioridade" }, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :due_date, "Data de Entrega" %>
+    <%= form.date_field :due_date, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :category_id, "Categoria" %>
+    <%= form.collection_select :category_id, @categories, :id, :name, { prompt: "Selecione uma categoria (opcional)" }, class: "form-control" %>
+  </div>
+
+  <%= form.submit @task.persisted? ? "Atualizar Tarefa" : "Adicionar Tarefa", class: "btn btn-primary" %>
+<% end %>
