@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
 
  get 'signup', to: 'users#new', as: 'signup'     # para se cadastrar
- post 'users', to: 'users#create'                # criar um novo usuário
+ post 'signup', to: 'users#create'                # criar um novo usuário
  get 'login', to: 'sessions#new', as: 'login'    # para logar
  post 'login', to: 'sessions#create'             # autenticar o usuário
  get 'logout', to: 'sessions#destroy', as: :logout
