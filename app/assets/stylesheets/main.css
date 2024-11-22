@@ -1,8 +1,18 @@
 :root {
-  --bs-primary: #001f3f;
+  --bs-primary: #001f3f !important;
 }
 
 .task-card:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease;
+}
+
+.bg-wine {
+  background-color: #800020;
+  color: #ffffff;
+}
+
+.bg-orange {
+  background-color: #d4670d;
+  color: #ffffff;
 }

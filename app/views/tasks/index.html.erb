@@ -30,18 +30,25 @@
                 <div class="mt-auto mb-2">
                   <% priority_class = case task.priority %>
                     <% when 'urgent' then 'bg-danger text-white' %>
-                    <% when 'high' then 'bg-warning text-dark' %>
-                    <% when 'medium' then 'bg-warning text-dark' %>
+                    <% when 'high' then 'bg-orange text-white' %>
+                    <% when 'medium' then 'bg-warning text-white' %>
                     <% when 'low' then 'bg-success text-white' %>
                   <% end %>
                   <span class="badge <%= priority_class %>"><%= task.priority.capitalize %></span>
 
                   <% status_class = case task.status %>
-                    <% when 'pending' then 'bg-maroon text-white' %>
+                    <% when 'pending' then 'bg-wine text-white' %>
                     <% when 'in_progress' then 'bg-info text-dark' %>
                     <% when 'completed' then 'bg-primary text-white' %>
                   <% end %>
                   <span class="badge <%= status_class %>"><%= task.status.capitalize %></span>
+
+                  <% if task.category %>
+                    <span class="badge" style="background-color: <%= task.category.color %>; color: white;">
+                      <%= task.category.name.capitalize %>
+                    </span>
+                  <% end %>
+
                 </div>
               </div>
             </div>

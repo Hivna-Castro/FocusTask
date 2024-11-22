@@ -27,9 +27,9 @@
   </div>
 
   <div class="mb-3">
-    <%= form.label :category_id, "Categoria" %>
-    <%= form.collection_select :category_id, @categories, :id, :name, { prompt: "Selecione uma categoria (opcional)" }, class: "form-control" %>
-  </div>
+  <%= form.label :category_id, "Categoria" %>
+  <%= form.select :category_id, options_for_select(@categories.map { |c| [c.name, c.id] }, selected: @task.category_id), { include_blank: "Nenhuma categoria" }, class: "form-control" %>
+</div>
 
   <%= form.submit @task.persisted? ? "Atualizar Tarefa" : "Adicionar Tarefa", class: "btn btn-primary" %>
 <% end %>
