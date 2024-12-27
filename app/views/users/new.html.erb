@@ -12,39 +12,32 @@
             <h1 class="text-2xl font-semibold text-gray-800 mb-4">Cadastro</h1>
             <%= form_with(url: signup_path, local: true) do |form| %>
               <div class="mb-4">
-                <%= form.label :name, "Name", class: "form-label", class: "block text-sm font-medium text-gray-700" %>
+                <%= form.label :name, "Name", class: "block text-sm font-medium text-gray-700" %>
                 <%= form.text_field :name, class: "mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500", placeholder: "Insira seu nome", required: true, name: "user[name]" %>
               </div>
-              
               <div class="mb-4">
-                <%= form.label :email, "Email", class: "form-label" %>
-                <%= form.email_field :email, class: "form-control", placeholder: "Insira seu email", required: true, name: "user[email]" %>
+                <%= form.label :email, "Email", class: "block text-sm font-medium text-gray-700" %>
+                <%= form.email_field :email, class: "mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500", placeholder: "Insira seu email", required: true, name: "user[email]" %>
               </div>
               
               <div class="mb-4">
-                <%= form.label :password, "Senha", class: "form-label" %>
-                <%= form.password_field :password, class: "form-control", placeholder: "Insira sua senha", required: true, name: "user[password]" %>
+                <%= form.label :password, "Senha", class: "block text-sm font-medium text-gray-700" %>
+                <%= form.password_field :password, class: "mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500", placeholder: "Insira sua senha", required: true, name: "user[password]" %>
               </div>
               
               <div class="mb-4">
-                <%= form.label :password_confirmation, "Confirmação de Senha", class: "form-label" %>
-                <%= form.password_field :password_confirmation, class: "form-control", placeholder: "Insira sua senha", required: true, name: "user[password_confirmation]"  %>
+                <%= form.label :password_confirmation, "Confirmação de Senha", class: "block text-sm font-medium text-gray-700"  %>
+                <%= form.password_field :password_confirmation, class: "mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500", placeholder: "Insira sua senha", required: true, name: "user[password_confirmation]"  %>
               </div>
-
-              <% if @user.errors.any? %>
-                <div class="alert alert-danger">
-                  <ul>
-                    <% @user.errors.full_messages.each do |message| %>
-                      <li><%= message %></li>
-                    <% end %>
-                  </ul>
-                </div>
-              <% end %>
               
               <div class="mb-6">
                 <%= form.submit "Cadastrar", class:"w-full bg-primary text-white py-2 px-4 rounded-md hover:bg-primary_hover focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"%>
               </div>
             <% end %>
+            <p class="text-center text-sm text-gray-600">
+              Já possui uma conta? 
+              <%= link_to 'Login', login_path, class: "text-primary hover:underline" %>
+            </p>
 
         </div>
       </div>
